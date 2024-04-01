@@ -3,15 +3,28 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "builder": "swc",
+    "builder": {
+      "type": "swc",
+      "options": {
+        "swcrcPath": ".swcrc"
+      }
+    },
     "typeCheck": true,
     "deleteOutDir": true,
     "plugins": [
       {
         "name": "@nestjs/swagger",
         "options": {
-          "classValidatorShim": false,
-          "introspectComments": true
+          "introspectComments": true,
+          "dtoFileNameSuffix": [
+            ".entity.ts",
+            ".dto.ts",
+            ".response.ts"
+          ],
+          "controllerFileNameSuffix": [".controller.ts"],
+          "classValidatorShim": true,
+          "dtoKeyOfComment": "description",
+          "controllerKeyOfComment": "description"
         }
       }
     ]
