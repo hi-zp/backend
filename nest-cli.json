@@ -26,7 +26,8 @@
           "dtoKeyOfComment": "description",
           "controllerKeyOfComment": "description"
         }
-      }
+      },
+      "@nestjs/graphql/plugin"
     ]
   }
 }
