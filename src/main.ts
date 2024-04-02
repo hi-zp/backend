@@ -2,18 +2,33 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import helmet from '@fastify/helmet';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import metadata from './metadata';
+import { ConfigService } from '@nestjs/config';
+import { HelperService } from '@common/helpers';
+import chalk from 'chalk';
+import { SWAGGER_API_ENDPOINT } from '@common/constant';
+import { useContainer } from 'class-validator';
+
+const logger = new Logger('Bootstrap');
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
     {
-      cors: true,
+      snapshot: true,
     }
   );
+
+  logger.log(`🛠️ Using env ${HelperService.getEnvFile()}\n`);
+
+  const configService = app.get(ConfigService<Configs, true>);
+
+  // ======================================================
+  // security and middlewares
+  // ======================================================
 
   app.register(helmet, {
     contentSecurityPolicy: {
@@ -38,27 +53,55 @@ async function bootstrap() {
     },
   });
 
-  // If you are not going to use CSP at all, you can use this:
-  app.register(helmet, {
-    contentSecurityPolicy: false,
-  });
+  if (!HelperService.isProd()) {
+    app.enableCors({
+      credentials: true,
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+      maxAge: 3600,
+      origin: configService.get('app.allowedOrigins', { infer: true }),
+    });
+  }
+
+  // =====================================================
+  // configure global pipes, filters, interceptors
+  // =====================================================
+  const globalPrefix = configService.get('app.prefix', { infer: true });
+
+  app.setGlobalPrefix(globalPrefix);
 
   app.useGlobalPipes(new ValidationPipe());
 
-  app.setGlobalPrefix('api');
+  if (!HelperService.isProd()) {
+    const config = new DocumentBuilder()
+      .setTitle('Cats example')
+      .setDescription('The cats API description')
+      .setVersion('1.0')
+      .addTag('cats')
+      .build();
+    await SwaggerModule.loadPluginMetadata(metadata);
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup(SWAGGER_API_ENDPOINT, app, document);
+  }
 
-  const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    .addTag('cats')
-    .build();
-  await SwaggerModule.loadPluginMetadata(metadata);
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('doc', app, document);
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(3000);
+  const port =
+    process.env.PORT ?? configService.get('app.port', { infer: true })!;
 
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  await app.listen(port);
+
+  const appUrl = await app.getUrl();
+
+  logger.log(`🚀 Application is running on: ${chalk.greenBright(appUrl)}`);
+  logger.log(
+    `🚦 Accepting request only from: ${chalk.greenBright(
+      `${configService.get('app.allowedOrigins', { infer: true }).toString()}`,
+    )}`,
+  );
+
+  if (!HelperService.isProd()) {
+    const swaggerUrl = `${appUrl}/${SWAGGER_API_ENDPOINT}`;
+    logger.log(`📑 Swagger is running on: ${chalk.greenBright(swaggerUrl)}`);
+  }
 }
 bootstrap();
