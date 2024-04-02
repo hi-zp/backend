@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { RecipesModule } from './recipes/recipes.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { RecipesModule } from './recipes/recipes.module';
     RecipesModule,
     CatsModule,
     UserModule,
-    PostModule
+    PostModule,
+    HealthModule
   ],
   controllers: [AppController],
   providers: [AppService],
