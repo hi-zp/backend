@@ -41,6 +41,8 @@
     "graphql": "^16.8.1",
     "joi": "^17.12.2",
     "mercurius": "^14.0.0",
+    "nestjs-pino": "^4.0.0",
+    "pino-http": "^9.0.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },

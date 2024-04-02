@@ -3256,6 +3256,8 @@ __metadata:
     jest: "npm:^29.7.0"
     joi: "npm:^17.12.2"
     mercurius: "npm:^14.0.0"
+    nestjs-pino: "npm:^4.0.0"
+    pino-http: "npm:^9.0.0"
     prettier: "npm:^3.2.5"
     prisma: "npm:^5.11.0"
     prisma-dbml-generator: "npm:^0.12.0"
@@ -7444,6 +7446,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nestjs-pino@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "nestjs-pino@npm:4.0.0"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    pino-http: ^6.4.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
+  checksum: 10/4e5ef9ab5435a5849c984fc788d53c3f69c8ed56389defcd86576c9761ab2e07dfb2efd3d2b1a1b1d14aeb5ed91d30447bc7bef3d36b0e26fba9fbb4dde6c219
+  languageName: node
+  linkType: hard
+
 "new-github-issue-url@npm:0.2.1":
   version: 0.2.1
   resolution: "new-github-issue-url@npm:0.2.1"
@@ -8009,14 +8021,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-std-serializers@npm:^6.0.0":
+"pino-http@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "pino-http@npm:9.0.0"
+  dependencies:
+    get-caller-file: "npm:^2.0.5"
+    pino: "npm:^8.17.1"
+    pino-std-serializers: "npm:^6.2.2"
+    process-warning: "npm:^3.0.0"
+  checksum: 10/12a0b016c62c1f4e7d506f6a690d10b7ccdbb5868fba8156a1bf515143e522087f87ce83a732615773e903271468c308d5f5eb908ca5446208803da119025fdf
+  languageName: node
+  linkType: hard
+
+"pino-std-serializers@npm:^6.0.0, pino-std-serializers@npm:^6.2.2":
   version: 6.2.2
   resolution: "pino-std-serializers@npm:6.2.2"
   checksum: 10/a00cdff4e1fbc206da9bed047e6dc400b065f43e8b4cef1635b0192feab0e8f932cdeb0faaa38a5d93d2e777ba4cda939c2ed4c1a70f6839ff25f9aef97c27ff
   languageName: node
   linkType: hard
 
-"pino@npm:^8.17.0":
+"pino@npm:^8.17.0, pino@npm:^8.17.1":
   version: 8.19.0
   resolution: "pino@npm:8.19.0"
   dependencies:

@@ -10,10 +10,12 @@ import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { RecipesModule } from './recipes/recipes.module';
 import { HealthModule } from './health/health.module';
 import { NestConfigModule } from '@core/config';
+import { NestPinoModule } from '@core/pino';
 
 @Module({
   imports: [
     NestConfigModule,
+    NestPinoModule,
     CoreModule,
     GraphQLModule.forRoot<MercuriusDriverConfig>({
       driver: MercuriusDriver,
