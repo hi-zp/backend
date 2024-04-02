@@ -1,3 +1,4 @@
+import { HelperService } from '@common/helpers';
 import { Module, RequestMethod } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
@@ -24,7 +25,7 @@ const basePinoOptions = {
         pinoHttp: {
           timestamp: () =>
             `,"timestamp":"${new Date(Date.now()).toISOString()}"`,
-          name: 'ultimate-nest',
+          name: 'backend-api',
           customProps: (_request: any, _response: any) => ({
             context: 'HTTP',
           }),
@@ -44,7 +45,7 @@ const basePinoOptions = {
             paths: redactFields,
             censor: '**GDPR COMPLIANT**',
           },
-          transport: true
+          transport: HelperService.isProd()
             ? {
                 targets: [
                   {

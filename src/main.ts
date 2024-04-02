@@ -2,16 +2,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import helmet from '@fastify/helmet';
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import metadata from './metadata';
 import { ConfigService } from '@nestjs/config';
-import { HelperService } from '@common/helpers';
+import { AppUtils, HelperService } from '@common/helpers';
 import chalk from 'chalk';
 import { SWAGGER_API_ENDPOINT } from '@common/constant';
 import { useContainer } from 'class-validator';
-
-const logger = new Logger('Bootstrap');
+import { LoggerErrorInterceptor } from 'nestjs-pino';
+import { Logger as PinoLogger } from 'nestjs-pino';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -19,8 +19,13 @@ async function bootstrap() {
     new FastifyAdapter(),
     {
       snapshot: true,
+      bufferLogs: true,
     }
   );
+
+  const logger = app.get(PinoLogger);
+  app.useLogger(logger);
+  app.flushLogs();
 
   logger.log(`🛠️ Using env ${HelperService.getEnvFile()}\n`);
 
@@ -69,7 +74,9 @@ async function bootstrap() {
 
   app.setGlobalPrefix(globalPrefix);
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()));
+
+  app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
   if (!HelperService.isProd()) {
     const config = new DocumentBuilder()
