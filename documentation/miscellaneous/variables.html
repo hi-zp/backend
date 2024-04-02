@@ -1,0 +1,615 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>backend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">backend documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#app" title="src/core/config/app.config.ts" ><b>app</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#APP_ENVIRONMENTS" title="src/common/constant/index.ts" ><b>APP_ENVIRONMENTS</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfigValidationSchema" title="src/core/config/app.config.ts" ><b>appConfigValidationSchema</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AppUtils" title="src/common/helpers/app.utils.ts" ><b>AppUtils</b>&nbsp;&nbsp;&nbsp;(src/.../app.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#basePinoOptions" title="src/core/pino/pino.module.ts" ><b>basePinoOptions</b>&nbsp;&nbsp;&nbsp;(src/.../pino.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ErrorCodeToStatusMap" title="src/common/errors/constant.ts" ><b>ErrorCodeToStatusMap</b>&nbsp;&nbsp;&nbsp;(src/.../constant.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getDefaultCodeByStatus" title="src/common/exception/custom.exception.ts" ><b>getDefaultCodeByStatus</b>&nbsp;&nbsp;&nbsp;(src/.../custom.exception.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HelperService" title="src/common/helpers/helpers.utils.ts" ><b>HelperService</b>&nbsp;&nbsp;&nbsp;(src/.../helpers.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redactFields" title="src/core/pino/pino.module.ts" ><b>redactFields</b>&nbsp;&nbsp;&nbsp;(src/.../pino.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Roles" title="src/common/decorators/roles.decorator.ts" ><b>Roles</b>&nbsp;&nbsp;&nbsp;(src/.../roles.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SWAGGER_API_ENDPOINT" title="src/common/constant/index.ts" ><b>SWAGGER_API_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/core/config/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app"></a>
+                    <span class="name">
+                        <span ><b>app</b></span>
+                        <a href="#app"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>registerAs(&#x27;app&#x27;, () &#x3D;&gt; ({
+  port: process.env.APP_PORT,
+  prefix: process.env.APP_PREFIX,
+  env: process.env.NODE_ENV,
+  url: process.env.API_URL,
+  name: process.env.APP_NAME,
+  clientUrl: process.env.CLIENT_URL,
+  allowedOrigins: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(&#x27;,&#x27;)
+    : &#x27;*&#x27;,
+  sentryDsn: process.env.SENTRY_DSN,
+  swaggerUser: process.env.SWAGGER_USER,
+  swaggerPass: process.env.SWAGGER_PASSWORD,
+}))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfigValidationSchema"></a>
+                    <span class="name">
+                        <span ><b>appConfigValidationSchema</b></span>
+                        <a href="#appConfigValidationSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  NODE_ENV: Joi.string()
+    .valid(...APP_ENVIRONMENTS)
+    .required(),
+  APP_PORT: Joi.number().port().required(),
+  API_URL: Joi.string().uri().required(),
+  APP_PREFIX: Joi.string().required().pattern(/^v\d+/).required().messages({
+    &#x27;string.pattern.base&#x27;: &#x27;Version must start with &quot;v&quot; followed by a number.&#x27;,
+  }),
+  APP_NAME: Joi.string().required(),
+  CLIENT_URL: Joi.string().uri().required(),
+  ALLOWED_HOSTS: Joi.string().optional(),
+  SWAGGER_USER: Joi.string().required(),
+  SWAGGER_PASSWORD: Joi.string().required(),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/constant/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="APP_ENVIRONMENTS"></a>
+                    <span class="name">
+                        <span ><b>APP_ENVIRONMENTS</b></span>
+                        <a href="#APP_ENVIRONMENTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;dev&#x27;,
+  &#x27;development&#x27;,
+  &#x27;stage&#x27;,
+  &#x27;staging&#x27;,
+  &#x27;test&#x27;,
+  &#x27;testing&#x27;,
+  &#x27;prod&#x27;,
+  &#x27;production&#x27;,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SWAGGER_API_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>SWAGGER_API_ENDPOINT</b></span>
+                        <a href="#SWAGGER_API_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;doc&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/app.utils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AppUtils"></a>
+                    <span class="name">
+                        <span ><b>AppUtils</b></span>
+                        <a href="#AppUtils"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  validationPipeOptions(): ValidationPipeOptions {
+    return {
+      whitelist: true,
+      transform: true,
+      stopAtFirstError: true,
+      forbidUnknownValues: false,
+      validateCustomDecorators: true,
+      enableDebugMessages: HelperService.isDev(),
+    };
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/pino/pino.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="basePinoOptions"></a>
+                    <span class="name">
+                        <span ><b>basePinoOptions</b></span>
+                        <a href="#basePinoOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  translateTime: true,
+  ignore: &#x27;pid,hostname&#x27;,
+  singleLine: true,
+  redact: redactFields,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redactFields"></a>
+                    <span class="name">
+                        <span ><b>redactFields</b></span>
+                        <a href="#redactFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;req.headers.authorization&#x27;,
+  &#x27;req.body.password&#x27;,
+  &#x27;req.body.confirmPassword&#x27;,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/errors/constant.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ErrorCodeToStatusMap"></a>
+                    <span class="name">
+                        <span ><b>ErrorCodeToStatusMap</b></span>
+                        <a href="#ErrorCodeToStatusMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/HttpError.html" target="_self" >Record&lt;HttpErrorCode, number&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  [HttpErrorCode.VALIDATION_ERROR]: 400,
+  [HttpErrorCode.UNAUTHORIZED]: 401,
+  [HttpErrorCode.RESTRICTED_RESOURCE]: 403,
+  [HttpErrorCode.UNAUTHORIZED_SHARE]: 403,
+  [HttpErrorCode.NOT_FOUND]: 404,
+  [HttpErrorCode.INTERNAL_SERVER_ERROR]: 500,
+  [HttpErrorCode.DATABASE_CONNECTION_UNAVAILABLE]: 503,
+  [HttpErrorCode.GATEWAY_TIMEOUT]: 504,
+  [HttpErrorCode.UNKNOWN_ERROR_CODE]: 500,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/exception/custom.exception.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDefaultCodeByStatus"></a>
+                    <span class="name">
+                        <span ><b>getDefaultCodeByStatus</b></span>
+                        <a href="#getDefaultCodeByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(status: HttpStatus) &#x3D;&gt; {
+  switch (status) {
+    case HttpStatus.BAD_REQUEST:
+      return HttpErrorCode.VALIDATION_ERROR;
+    case HttpStatus.UNAUTHORIZED:
+      return HttpErrorCode.UNAUTHORIZED;
+    case HttpStatus.FORBIDDEN:
+      return HttpErrorCode.RESTRICTED_RESOURCE;
+    case HttpStatus.NOT_FOUND:
+      return HttpErrorCode.NOT_FOUND;
+    case HttpStatus.INTERNAL_SERVER_ERROR:
+      return HttpErrorCode.INTERNAL_SERVER_ERROR;
+    case HttpStatus.SERVICE_UNAVAILABLE:
+      return HttpErrorCode.DATABASE_CONNECTION_UNAVAILABLE;
+    default:
+      return HttpErrorCode.UNKNOWN_ERROR_CODE;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/helpers.utils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HelperService"></a>
+                    <span class="name">
+                        <span ><b>HelperService</b></span>
+                        <a href="#HelperService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  getEnvFile() {
+    return &#x60;${process.cwd()}/env/.env.${process.env.NODE_ENV}&#x60;;
+  },
+
+  /* The &#x60;isDev()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
+  the string &quot;dev&quot;. It returns &#x60;true&#x60; if the environment is set to development, and &#x60;false&#x60; otherwise.
+  This function is used to determine if the application is running in a development environment. */
+  isDev(): boolean {
+    return process.env.NODE_ENV.startsWith(&#x27;dev&#x27;);
+  },
+
+  /* The &#x60;isProd()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
+  the string &quot;prod&quot;. It returns &#x60;true&#x60; if the environment is set to production, and &#x60;false&#x60; otherwise.
+  This function is used to determine if the application is running in a production environment. */
+  isProd(): boolean {
+    return process.env.NODE_ENV.startsWith(&#x27;prod&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/decorators/roles.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Roles"></a>
+                    <span class="name">
+                        <span ><b>Roles</b></span>
+                        <a href="#Roles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(...roles: string[]) &#x3D;&gt; SetMetadata(&#x27;roles&#x27;, roles)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
