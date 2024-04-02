@@ -50,7 +50,7 @@ const basePinoOptions = {
                 targets: [
                   {
                     target: 'pino/file',
-                    level: 'info', // log only errors to file
+                    level: 'info',
                     options: {
                       ...basePinoOptions,
                       destination: 'logs/info.log',
@@ -82,17 +82,7 @@ const basePinoOptions = {
                   },
                   {
                     target: 'pino/file',
-                    level: 'info', // log only errors to file
-                    options: {
-                      ...basePinoOptions,
-                      destination: 'logs/info.log',
-                      mkdir: true,
-                      sync: false,
-                    },
-                  },
-                  {
-                    target: 'pino/file',
-                    level: 'error', // log only errors to file
+                    level: 'error',
                     options: {
                       ...basePinoOptions,
                       destination: 'logs/error.log',

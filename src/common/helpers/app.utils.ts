@@ -6,6 +6,7 @@ export const AppUtils = {
     return {
       whitelist: true,
       transform: true,
+      stopAtFirstError: true,
       forbidUnknownValues: false,
       validateCustomDecorators: true,
       enableDebugMessages: HelperService.isDev(),

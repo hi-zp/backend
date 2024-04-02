@@ -12,6 +12,7 @@ import { SWAGGER_API_ENDPOINT } from '@common/constant';
 import { useContainer } from 'class-validator';
 import { LoggerErrorInterceptor } from 'nestjs-pino';
 import { Logger as PinoLogger } from 'nestjs-pino';
+import { GlobalExceptionFilter } from '@core/filters';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -73,6 +74,8 @@ async function bootstrap() {
   const globalPrefix = configService.get('app.prefix', { infer: true });
 
   app.setGlobalPrefix(globalPrefix);
+
+  app.useGlobalFilters(new GlobalExceptionFilter(configService));
 
   app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()));
 
