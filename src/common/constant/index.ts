@@ -10,3 +10,5 @@ export const APP_ENVIRONMENTS = [
 ];
 
 export const SWAGGER_API_ENDPOINT = 'doc';
+
+export * from './regex.constants'

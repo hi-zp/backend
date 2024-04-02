@@ -32,6 +32,13 @@
 $ yarn install
 ```
 
+## Preparing the foundational service image
+
+```bash
+# create foundational service
+$ docker-compose --env-file ./env/.env.dev up -d
+```
+
 ## Running the app
 
 ```bash

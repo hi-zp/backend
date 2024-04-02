@@ -1,0 +1,30 @@
+services:
+
+  # Redis service
+  # This service runs the Redis database
+  redis:
+    image: redis:7.2.4
+    container_name: redis
+    restart: unless-stopped
+    env_file: ./env/.env.${NODE_ENV}
+    command: redis-server --loglevel warning --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - ${DISK_STORAGE_PATH}/redis-data:/data
+      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - backend-network
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis-data:
+
+networks:
+  backend-network:
+    driver: bridge
+    name: backend-network
