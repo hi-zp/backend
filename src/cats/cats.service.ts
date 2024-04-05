@@ -10,6 +10,10 @@ export class CatsService {
   }
 
   findAll(): Cat[] {
-    return this.cats;
+    return this.cats.concat({
+      name: 'hello',
+      age: 10,
+      breed: 'hello ' + Date.now(),
+    });
   }
 }

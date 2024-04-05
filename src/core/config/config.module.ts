@@ -4,8 +4,10 @@ import Joi from 'joi';
 import { HelperService } from '@common/helpers';
 import { app, appConfigValidationSchema } from './app.config';
 import { redis, redisConfigValidationSchema } from './redis.config';
+import { cache, cacheConfigValidationSchema } from './cache.config';
+import { sqlite, sqliteConfigValidationSchema } from './sqlite.config';
 
-const services = HelperService.getServices();
+const provider = process.env.CACHE_PROVIDER;
 
 @Module({
   imports: [
@@ -13,14 +15,14 @@ const services = HelperService.getServices();
       envFilePath: [HelperService.getEnvFile()],
       load: [
         app,
-        services.redis ? redis : undefined
+        provider === 'redis' ? redis : (provider === 'sqlite' ? sqlite : cache),
       ].filter(_ => _),
       cache: true,
       isGlobal: true,
       expandVariables: true,
       validationSchema: Joi.object({
         ...appConfigValidationSchema,
-        ...(services.redis ? redisConfigValidationSchema : {})
+        ...(provider === 'redis' ? redisConfigValidationSchema : (provider === 'sqlite' ? sqliteConfigValidationSchema : cacheConfigValidationSchema))
       }),
       validationOptions: {
         abortEarly: true,

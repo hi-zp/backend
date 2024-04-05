@@ -1,36 +1,29 @@
-import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable } from '@nestjs/common';
-import type { Cache } from 'cache-manager';
+import { Injectable } from '@nestjs/common';
+import { type Store } from 'keyv';
+import type { ICacheStore } from './types';
+import { ConfigService } from '@nestjs/config';
 
-// https://docs.nestjs.com/techniques/caching#interacting-with-the-cache-store
 @Injectable()
 export class CacheService {
-  constructor(@Inject(CACHE_MANAGER) private readonly cacheManager: Cache) {}
+  constructor(
+    private readonly cacheManager: Store<any>,
+    private readonly configService: ConfigService<Configs, true>
+  ) {}
 
-  /**
-   * It deletes all cache keys that match the given regular expression
-   * @param regexString - The regex string to match against the cache keys.
-   * @returns A boolean value.
-   */
-  async deleteMatch(regexString: string): Promise<boolean> {
-    const keys = await this.cacheManager.store.keys();
-    const regex = new RegExp(regexString, 'i');
-    const match = keys.filter((key: string) => regex.test(key));
-
-    const deletePromises = match.map((key: string) => {
-      return this.cacheManager.del(key);
-    });
-
-    await Promise.all(deletePromises);
-
-    return true;
+  async get<TKey extends keyof ICacheStore>(key: TKey): Promise<ICacheStore[TKey] | undefined> {
+    return this.cacheManager.get(key);
   }
 
-  /**
-   * Reset the cache.
-   * @returns A promise that resolves to void.
-   */
-  async resetCache(): Promise<void> {
-    return this.cacheManager.reset();
+  async set<TKey extends keyof ICacheStore>(
+    key: TKey,
+    value: ICacheStore[TKey],
+    ttl?: number
+  ): Promise<void> {
+    ttl = ttl || this.configService.get('cache.ttl', { infer: true });
+    await this.cacheManager.set(key, value, ttl ? ttl * 1000 : undefined);
+  }
+
+  async del<TKey extends keyof ICacheStore>(key: TKey): Promise<void> {
+    await this.cacheManager.delete(key);
   }
 }

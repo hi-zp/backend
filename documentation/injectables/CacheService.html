@@ -86,16 +86,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Controllers</li>
-  <li class="breadcrumb-item" >CatsController</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CacheService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -119,16 +122,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/cats/cats.controller.ts</code>
+            <code>src/core/cache/cache.service.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>cats</code>
-            </p>
-
 
 
 
@@ -148,19 +143,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
-                                <a href="#create" >create</a>
+                                <a href="#del" >del</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
-                                <a href="#findAll" >findAll</a>
+                                <a href="#get" >get</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
-                                <a href="#findOne" >findOne</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#set" >set</a>
                             </li>
                         </ul>
                     </td>
@@ -174,6 +166,67 @@
     </table>
 </section>
 
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cacheManager: Store<any>, configService: <a href="../interfaces/Config.html" target="_self">ConfigService&lt;Configs | &gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/core/cache/cache.service.ts:7</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cacheManager</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >ConfigService&lt;Configs | &gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
             <section data-compodoc="block-methods">
     
     <h3 id="methods">
@@ -183,38 +236,37 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
+                    <a name="del"></a>
                     <span class="name">
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
                             <span class="modifier">Async</span>
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>del</b></span>
+                        <a href="#del"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(createCatDto: <a href="../classes/CreateCatDto.html" target="_self">CreateCatDto</a>)</code>
+                    <code>del(key: TKey)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post()<br />@Roles(&#x27;admin&#x27;)<br /></code>
-                </td>
-            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/cats/cats.controller.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/core/cache/cache.service.ts:26</a></div>
                         </td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>TKey</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -232,9 +284,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>createCatDto</td>
+                                                <td>key</td>
                                             <td>
-                                                            <code><a href="../classes/CreateCatDto.html" target="_self" >CreateCatDto</a></code>
+                                                        <code>TKey</code>
                                             </td>
 
                                             <td>
@@ -247,7 +299,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -261,83 +313,37 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAll"></a>
+                    <a name="get"></a>
                     <span class="name">
-                            <span class="modifier"></span>
                             <span class="modifier">Async</span>
-                        <span ><b>findAll</b></span>
-                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll()</code>
+                    <code>get(key: TKey)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get()<br /></code>
-                </td>
-            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/cats/cats.controller.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/core/cache/cache.service.ts:13</a></div>
                         </td>
                     </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/Cat.html" target="_self" >Promise&lt;Cat[]&gt;</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findOne"></a>
-                    <span class="name">
-                            <span class="modifier"></span>
-                        <span ><b>findOne</b></span>
-                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;:id&#x27;)<br /></code>
-                </td>
-            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/cats/cats.controller.ts:36</a></div>
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>TKey</li>
+                            </ul>
                         </td>
                     </tr>
-
 
             <tr>
                 <td class="col-md-4">
@@ -355,13 +361,113 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>key</td>
+                                            <td>
+                                                        <code>TKey</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#undefined" target="_self" >Promise&lt; | undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="set"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>set</b></span>
+                        <a href="#set"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>set(key: TKey, value, ttl?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/core/cache/cache.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>TKey</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                        <code>TKey</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ttl</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                             </td>
 
                                             <td>
-                                                    No
+                                                    Yes
                                             </td>
 
 
@@ -370,7 +476,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -380,57 +486,45 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, UseGuards, UseInterceptors } from &#x27;@nestjs/common&#x27;;
-import { Roles } from &#x27;../common/decorators/roles.decorator&#x27;;
-import { RolesGuard } from &#x27;../common/guards/roles.guard&#x27;;
-import { ParseIntPipe } from &#x27;../common/pipes/parse-int.pipe&#x27;;
-import { CatsService } from &#x27;./cats.service&#x27;;
-import { CreateCatDto } from &#x27;./dto/create-cat.dto&#x27;;
-import { Cat } from &#x27;./interfaces/cat.interface&#x27;;
-import { CacheService } from &#x27;@core/cache&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { type Store } from &#x27;keyv&#x27;;
+import type { ICacheStore } from &#x27;./types&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 
-@UseGuards(RolesGuard)
-@Controller(&#x27;cats&#x27;)
-export class CatsController {
+@Injectable()
+export class CacheService {
   constructor(
-    private readonly catsService: CatsService,
-    private readonly cacheService: CacheService,
+    private readonly cacheManager: Store&lt;any&gt;,
+    private readonly configService: ConfigService&lt;Configs, true&gt;
   ) {}
 
-  @Post()
-  @Roles(&#x27;admin&#x27;)
-  async create(@Body() createCatDto: CreateCatDto) {
-    this.catsService.create(createCatDto);
+  async get&lt;TKey extends keyof ICacheStore&gt;(key: TKey): Promise&lt;ICacheStore[TKey] | undefined&gt; {
+    return this.cacheManager.get(key);
   }
 
-  @Get()
-  async findAll(): Promise&lt;Cat[]&gt; {
-    const cached &#x3D; await this.cacheService.get(&#x27;findAll&#x27;);
-    if (cached) return cached
-
-    const cats &#x3D; this.catsService.findAll();
-    await this.cacheService.set(&#x27;findAll&#x27;, cats, 10);
-    return cats
+  async set&lt;TKey extends keyof ICacheStore&gt;(
+    key: TKey,
+    value: ICacheStore[TKey],
+    ttl?: number
+  ): Promise&lt;void&gt; {
+    ttl &#x3D; ttl || this.configService.get(&#x27;cache.ttl&#x27;, { infer: true });
+    await this.cacheManager.set(key, value, ttl ? ttl * 1000 : undefined);
   }
 
-
-  @Get(&#x27;:id&#x27;)
-  findOne(
-    @Param(&#x27;id&#x27;, new ParseIntPipe())
-    id: number,
-  ) {
-    return id;
+  async del&lt;TKey extends keyof ICacheStore&gt;(key: TKey): Promise&lt;void&gt; {
+    await this.cacheManager.delete(key);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -469,8 +563,8 @@ export class CatsController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'CatsController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CacheService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

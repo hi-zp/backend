@@ -24,14 +24,4 @@ export const HelperService = {
   isProd(): boolean {
     return process.env.NODE_ENV.startsWith('prod');
   },
-
-  /**
-   * Get services status
-   * @returns object { redis: boolean }
-   */
-  getServices() {
-    return {
-      redis: !!process.env.REDIS_HOST,
-    };
-  }
 }

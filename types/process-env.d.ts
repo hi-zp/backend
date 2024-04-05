@@ -52,12 +52,14 @@ declare global {
       CLOUDINARY_API_KEY: string;
       CLOUDINARY_API_SECRET: string;
 
-      REDIS_TTL: number;
+      CACHE_TTL: number;
+      CACHE_PROVIDER: 'memory' | 'redis' | 'sqlite';
       REDIS_URI: string;
       REDIS_HOST: string;
       REDIS_PASSWORD: string;
       REDIS_USERNAME: string;
       REDIS_PORT: number;
+      SQLITE_URL: string;
 
       RABBITMQ_URI: string;
       RABBITMQ_DEFAULT_PREFETCH: number;

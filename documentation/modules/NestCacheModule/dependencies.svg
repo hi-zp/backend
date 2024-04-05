@@ -21,44 +21,44 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_PrismaModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="165,-70 165,-268 331,-268 331,-70 165,-70"/>
-</g>
-<g id="clust6" class="cluster">
-<title>cluster_PrismaModule_providers</title>
-<polygon fill="none" stroke="black" points="173,-78 173,-130 323,-130 323,-78 173,-78"/>
+<title>cluster_NestCacheModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="168,-70 168,-268 328,-268 328,-70 168,-70"/>
 </g>
 <g id="clust4" class="cluster">
-<title>cluster_PrismaModule_exports</title>
-<polygon fill="none" stroke="black" points="190,-208 190,-260 306,-260 306,-208 190,-208"/>
+<title>cluster_NestCacheModule_exports</title>
+<polygon fill="none" stroke="black" points="192,-208 192,-260 304,-260 304,-208 192,-208"/>
 </g>
-<!-- PrismaService  -->
+<g id="clust6" class="cluster">
+<title>cluster_NestCacheModule_providers</title>
+<polygon fill="none" stroke="black" points="176,-78 176,-130 320,-130 320,-78 176,-78"/>
+</g>
+<!-- CacheService  -->
 <g id="node1" class="node">
-<title>PrismaService </title>
-<polygon fill="#fb8072" stroke="black" points="298.36,-252 197.64,-252 197.64,-216 298.36,-216 298.36,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">PrismaService </text>
+<title>CacheService </title>
+<polygon fill="#fb8072" stroke="black" points="296.46,-252 199.54,-252 199.54,-216 296.46,-216 296.46,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">CacheService </text>
 </g>
-<!-- PrismaModule -->
+<!-- NestCacheModule -->
 <g id="node2" class="node">
-<title>PrismaModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="297.43,-187 294.43,-191 273.43,-191 270.43,-187 198.57,-187 198.57,-151 297.43,-151 297.43,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">PrismaModule</text>
+<title>NestCacheModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="308.19,-187 305.19,-191 284.19,-191 281.19,-187 187.81,-187 187.81,-151 308.19,-151 308.19,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">NestCacheModule</text>
 </g>
-<!-- PrismaModule&#45;&gt;PrismaService  -->
+<!-- NestCacheModule&#45;&gt;CacheService  -->
 <g id="edge1" class="edge">
-<title>PrismaModule&#45;&gt;PrismaService </title>
+<title>NestCacheModule&#45;&gt;CacheService </title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M248,-187.11C248,-187.11 248,-205.99 248,-205.99"/>
 <polygon fill="black" stroke="black" points="244.5,-205.99 248,-215.99 251.5,-205.99 244.5,-205.99"/>
 </g>
-<!-- PrismaService -->
+<!-- CacheService -->
 <g id="node3" class="node">
-<title>PrismaService</title>
-<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="66.63" ry="18"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">PrismaService</text>
+<title>CacheService</title>
+<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="64.24" ry="18"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">CacheService</text>
 </g>
-<!-- PrismaService&#45;&gt;PrismaModule -->
+<!-- CacheService&#45;&gt;NestCacheModule -->
 <g id="edge2" class="edge">
-<title>PrismaService&#45;&gt;PrismaModule</title>
+<title>CacheService&#45;&gt;NestCacheModule</title>
 <path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
 <polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>

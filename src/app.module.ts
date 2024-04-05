@@ -11,11 +11,13 @@ import { RecipesModule } from './recipes/recipes.module';
 import { HealthModule } from './health/health.module';
 import { NestConfigModule } from '@core/config';
 import { NestPinoModule } from '@core/pino';
+import { NestCacheModule } from '@core/cache';
 
 @Module({
   imports: [
     NestConfigModule,
     NestPinoModule,
+    NestCacheModule.register({ global: true }),
     CoreModule,
     GraphQLModule.forRoot<MercuriusDriverConfig>({
       driver: MercuriusDriver,

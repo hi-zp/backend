@@ -343,7 +343,11 @@ export class CatsService {
   }
 
   findAll(): Cat[] {
-    return this.cats;
+    return this.cats.concat({
+      name: &#x27;hello&#x27;,
+      age: 10,
+      breed: &#x27;hello &#x27; + Date.now(),
+    });
   }
 }</code></pre>
     </div>

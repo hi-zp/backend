@@ -134,6 +134,18 @@
                             <a href="#basePinoOptions" title="src/core/pino/pino.module.ts" ><b>basePinoOptions</b>&nbsp;&nbsp;&nbsp;(src/.../pino.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#cache" title="src/core/config/cache.config.ts" ><b>cache</b>&nbsp;&nbsp;&nbsp;(src/.../cache.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cacheConfigValidationSchema" title="src/core/config/cache.config.ts" ><b>cacheConfigValidationSchema</b>&nbsp;&nbsp;&nbsp;(src/.../cache.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CacheProvider" title="src/core/cache/cache.provider.ts" ><b>CacheProvider</b>&nbsp;&nbsp;&nbsp;(src/.../cache.provider.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#envFile" title="src/common/helpers/helpers.utils.ts" ><b>envFile</b>&nbsp;&nbsp;&nbsp;(src/.../helpers.utils.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ErrorCodeToStatusMap" title="src/common/errors/constant.ts" ><b>ErrorCodeToStatusMap</b>&nbsp;&nbsp;&nbsp;(src/.../constant.ts)</a>
                         </li>
                         <li>
@@ -143,13 +155,49 @@
                             <a href="#HelperService" title="src/common/helpers/helpers.utils.ts" ><b>HelperService</b>&nbsp;&nbsp;&nbsp;(src/.../helpers.utils.ts)</a>
                         </li>
                         <li>
+                            <a href="#JWT_EXPIRY_REGEX" title="src/common/constant/regex.constants.ts" ><b>JWT_EXPIRY_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PASSWORD_REGEX" title="src/common/constant/regex.constants.ts" ><b>PASSWORD_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#provider" title="src/core/config/config.module.ts" ><b>provider</b>&nbsp;&nbsp;&nbsp;(src/.../config.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RABBIT_MQ_URI_REGEX" title="src/common/constant/regex.constants.ts" ><b>RABBIT_MQ_URI_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
                             <a href="#redactFields" title="src/core/pino/pino.module.ts" ><b>redactFields</b>&nbsp;&nbsp;&nbsp;(src/.../pino.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redis" title="src/core/config/redis.config.ts" ><b>redis</b>&nbsp;&nbsp;&nbsp;(src/.../redis.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REDIS_URI_REGEX" title="src/common/constant/regex.constants.ts" ><b>REDIS_URI_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redisConfigValidationSchema" title="src/core/config/redis.config.ts" ><b>redisConfigValidationSchema</b>&nbsp;&nbsp;&nbsp;(src/.../redis.config.ts)</a>
                         </li>
                         <li>
                             <a href="#Roles" title="src/common/decorators/roles.decorator.ts" ><b>Roles</b>&nbsp;&nbsp;&nbsp;(src/.../roles.decorator.ts)</a>
                         </li>
                         <li>
+                            <a href="#SENTRY_DSN_REGEX" title="src/common/constant/regex.constants.ts" ><b>SENTRY_DSN_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sqlite" title="src/core/config/sqlite.config.ts" ><b>sqlite</b>&nbsp;&nbsp;&nbsp;(src/.../sqlite.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sqliteConfigValidationSchema" title="src/core/config/sqlite.config.ts" ><b>sqliteConfigValidationSchema</b>&nbsp;&nbsp;&nbsp;(src/.../sqlite.config.ts)</a>
+                        </li>
+                        <li>
                             <a href="#SWAGGER_API_ENDPOINT" title="src/common/constant/index.ts" ><b>SWAGGER_API_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERNAME_REGEX" title="src/common/constant/regex.constants.ts" ><b>USERNAME_REGEX</b>&nbsp;&nbsp;&nbsp;(src/.../regex.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/core/cache/cache.module.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../cache.module.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -402,6 +450,191 @@
         </tbody>
     </table>
 </section>
+    <h3>src/core/config/cache.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cache"></a>
+                    <span class="name">
+                        <span ><b>cache</b></span>
+                        <a href="#cache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>registerAs(&#x27;cache&#x27;, () &#x3D;&gt; ({
+  provider: process.env.CACHE_PROVIDER,
+  ttl: +process.env.CACHE_TTL,
+}))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cacheConfigValidationSchema"></a>
+                    <span class="name">
+                        <span ><b>cacheConfigValidationSchema</b></span>
+                        <a href="#cacheConfigValidationSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  CACHE_PROVIDER: Joi.string().valid(&#x27;redis&#x27;, &#x27;sqlite&#x27;, &#x27;memory&#x27;).required(),
+  CACHE_TTL: Joi.number().integer().min(1).required(),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/cache/cache.provider.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CacheProvider"></a>
+                    <span class="name">
+                        <span ><b>CacheProvider</b></span>
+                        <a href="#CacheProvider"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Provider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: CacheService,
+  inject: [ConfigService],
+  useFactory: async (configService: ConfigService&lt;Configs, true&gt;) &#x3D;&gt; {
+    const cache &#x3D; configService.get(&#x27;cache&#x27;, { infer: true });
+    const sqlite &#x3D; configService.get(&#x27;sqlite&#x27;, { infer: true });
+    const redis &#x3D; configService.get(&#x27;redis&#x27;, { infer: true });
+
+    Logger.log(&#x60;[Cache Manager Adapter]: ${cache.provider}&#x60;);
+
+    const store &#x3D; match(cache.provider)
+      .with(&#x27;memory&#x27;, () &#x3D;&gt; new Map())
+      .with(&#x27;sqlite&#x27;, () &#x3D;&gt; {
+        const uri &#x3D; sqlite.uri.replace(/^sqlite:\/\//, &#x27;&#x27;);
+        fse.ensureFileSync(uri);
+
+        Logger.log(&#x60;[Cache Manager File Path]: ${path.resolve(uri)}&#x60;);
+
+        return new KeyvSqlite({
+          ...sqlite,
+          uri,
+        });
+      })
+      .with(&#x27;redis&#x27;, () &#x3D;&gt; new KeyvRedis(redis.url, { useRedisSets: false }))
+      .exhaustive();
+
+    const keyv &#x3D; new Keyv({ namespace: &#x27;teable_cache&#x27;, store: store });
+    keyv.on(&#x27;error&#x27;, (error) &#x3D;&gt; {
+      error &amp;&amp; Logger.error(error, &#x27;Cache Manager Connection Error&#x27;);
+    });
+
+    Logger.log(&#x60;[Cache Manager Namespace]: ${keyv.opts.namespace}&#x60;);
+    return new CacheService(keyv, configService);
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/helpers.utils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="envFile"></a>
+                    <span class="name">
+                        <span ><b>envFile</b></span>
+                        <a href="#envFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;${process.cwd()}/env/.env.${process.env.NODE_ENV}&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HelperService"></a>
+                    <span class="name">
+                        <span ><b>HelperService</b></span>
+                        <a href="#HelperService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  getEnvFile() {
+    return envFile;
+  },
+
+  /* The &#x60;isDev()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
+  the string &quot;dev&quot;. It returns &#x60;true&#x60; if the environment is set to development, and &#x60;false&#x60; otherwise.
+  This function is used to determine if the application is running in a development environment. */
+  isDev(): boolean {
+    return process.env.NODE_ENV.startsWith(&#x27;dev&#x27;);
+  },
+
+  /* The &#x60;isProd()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
+  the string &quot;prod&quot;. It returns &#x60;true&#x60; if the environment is set to production, and &#x60;false&#x60; otherwise.
+  This function is used to determine if the application is running in a production environment. */
+  isProd(): boolean {
+    return process.env.NODE_ENV.startsWith(&#x27;prod&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/common/errors/constant.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -481,16 +714,188 @@
         </tbody>
     </table>
 </section>
-    <h3>src/common/helpers/helpers.utils.ts</h3>
+    <h3>src/common/constant/regex.constants.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="HelperService"></a>
+                    <a name="JWT_EXPIRY_REGEX"></a>
                     <span class="name">
-                        <span ><b>HelperService</b></span>
-                        <a href="#HelperService"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>JWT_EXPIRY_REGEX</b></span>
+                        <a href="#JWT_EXPIRY_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/\b(\d+)\s*(ms|s|m|h|d)\b/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PASSWORD_REGEX"></a>
+                    <span class="name">
+                        <span ><b>PASSWORD_REGEX</b></span>
+                        <a href="#PASSWORD_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)(?&#x3D;.*\W).*$/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RABBIT_MQ_URI_REGEX"></a>
+                    <span class="name">
+                        <span ><b>RABBIT_MQ_URI_REGEX</b></span>
+                        <a href="#RABBIT_MQ_URI_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^(amqps?):\/\/(?:[^:@]+:[^:@]+@)?[^/:?]+(?::\d+)?(?:\/[^/?]+)?(?:\?.*)?$/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REDIS_URI_REGEX"></a>
+                    <span class="name">
+                        <span ><b>REDIS_URI_REGEX</b></span>
+                        <a href="#REDIS_URI_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^redis:\/\/(?:([^:@]+):([^:@]+)@)?([^/:]+)(?::(\d+))?(?:\/(\d+))?$/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SENTRY_DSN_REGEX"></a>
+                    <span class="name">
+                        <span ><b>SENTRY_DSN_REGEX</b></span>
+                        <a href="#SENTRY_DSN_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/https:\/\/[\da-f]{32}@o\d+\.ingest\.sentry\.io\/\d+/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERNAME_REGEX"></a>
+                    <span class="name">
+                        <span ><b>USERNAME_REGEX</b></span>
+                        <a href="#USERNAME_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^(?![\d._-])[\w-.]+$/</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/config/config.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provider"></a>
+                    <span class="name">
+                        <span ><b>provider</b></span>
+                        <a href="#provider"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env.CACHE_PROVIDER</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/config/redis.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redis"></a>
+                    <span class="name">
+                        <span ><b>redis</b></span>
+                        <a href="#redis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>registerAs(&#x27;redis&#x27;, () &#x3D;&gt; ({
+  url: process.env.REDIS_URI,
+  username: process.env.REDIS_USERNAME,
+  password: process.env.REDIS_PASSWORD,
+  host: process.env.REDIS_HOST,
+  port: +process.env.REDIS_PORT,
+}))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redisConfigValidationSchema"></a>
+                    <span class="name">
+                        <span ><b>redisConfigValidationSchema</b></span>
+                        <a href="#redisConfigValidationSchema"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -503,23 +908,11 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  getEnvFile() {
-    return &#x60;${process.cwd()}/env/.env.${process.env.NODE_ENV}&#x60;;
-  },
-
-  /* The &#x60;isDev()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
-  the string &quot;dev&quot;. It returns &#x60;true&#x60; if the environment is set to development, and &#x60;false&#x60; otherwise.
-  This function is used to determine if the application is running in a development environment. */
-  isDev(): boolean {
-    return process.env.NODE_ENV.startsWith(&#x27;dev&#x27;);
-  },
-
-  /* The &#x60;isProd()&#x60; function is checking if the value of the &#x60;NODE_ENV&#x60; environment variable starts with
-  the string &quot;prod&quot;. It returns &#x60;true&#x60; if the environment is set to production, and &#x60;false&#x60; otherwise.
-  This function is used to determine if the application is running in a production environment. */
-  isProd(): boolean {
-    return process.env.NODE_ENV.startsWith(&#x27;prod&#x27;);
-  },
+  REDIS_URI: Joi.string().pattern(REDIS_URI_REGEX).required(),
+  REDIS_USERNAME: Joi.string().required(),
+  REDIS_PASSWORD: Joi.string().required(),
+  REDIS_HOST: Joi.string().required(),
+  REDIS_PORT: Joi.number().port().required(),
 }</code>
                     </td>
                 </tr>
@@ -544,6 +937,82 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>(...roles: string[]) &#x3D;&gt; SetMetadata(&#x27;roles&#x27;, roles)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/config/sqlite.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sqlite"></a>
+                    <span class="name">
+                        <span ><b>sqlite</b></span>
+                        <a href="#sqlite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>registerAs(&#x27;sqlite&#x27;, () &#x3D;&gt; ({
+  uri: process.env.SQLITE_URL,
+}))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sqliteConfigValidationSchema"></a>
+                    <span class="name">
+                        <span ><b>sqliteConfigValidationSchema</b></span>
+                        <a href="#sqliteConfigValidationSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  SQLITE_URL: Joi.string().required(),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/core/cache/cache.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ConfigurableModuleBuilder&lt;CacheModuleOptions&gt;().build()</code>
                     </td>
                 </tr>
 
