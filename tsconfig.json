@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@common/*": ["./src/common/*"],
-      "@core/*": ["./src/core/*"]
+      "@core/*": ["./src/core/*"],
+      "metadata": ["./src/metadata.ts"]
     }
   },
   "typeRoots": ["./typings"]

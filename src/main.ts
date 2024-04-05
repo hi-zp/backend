@@ -3,8 +3,6 @@ import { AppModule } from './app.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import helmet from '@fastify/helmet';
 import { ValidationPipe } from '@nestjs/common';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import metadata from './metadata';
 import { ConfigService } from '@nestjs/config';
 import { AppUtils, HelperService } from '@common/helpers';
 import chalk from 'chalk';
@@ -81,17 +79,21 @@ async function bootstrap() {
 
   app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
+  // =========================================================
+  // configure swagger
+  // =========================================================
+
   if (!HelperService.isProd()) {
-    const config = new DocumentBuilder()
-      .setTitle('Cats example')
-      .setDescription('The cats API description')
-      .setVersion('1.0')
-      .addTag('cats')
-      .build();
-    await SwaggerModule.loadPluginMetadata(metadata);
-    const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup(SWAGGER_API_ENDPOINT, app, document);
+    await AppUtils.setupSwagger(app, configService);
   }
+
+  // =========================================================
+  // configure shutdown hooks
+  // =========================================================
+
+  app.enableShutdownHooks();
+
+  AppUtils.killAppWithGrace(app);
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
